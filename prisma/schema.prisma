@@ -9,3 +9,10 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model member {
+  id      Int           @id @default(autoincrement())
+  nama    String        @unique(map: "sliderCode_UNIQUE") @db.VarChar(45)
+  nik     Int
+  address String?       @db.VarChar(200)
+}
